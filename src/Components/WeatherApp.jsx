@@ -90,14 +90,14 @@ else {
           <img src={humidity_icon} className="icon" alt="" />
           <div className="data">
             <div className="humidity-percent">64%</div>
-            <div className="text">Humidity</div>
+            <div className="text">Luftfuktighet</div>
           </div>
         </div>
         <div className="element">
           <img src={wind_icon} className="icon" alt="" />
           <div className="data">
             <div className="wind-speed">18 km/h</div>
-            <div className="text">Wind Speed</div>
+            <div className="text">Vind</div>
           </div>
         </div>
       </div>
