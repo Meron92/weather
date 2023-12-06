@@ -10,8 +10,8 @@ import wind_icon from "./Assets/wind.png";
 import humidity_icon from "./Assets/humidity.png";
 
 const WeatherApp = () => {
-  let api_key = "119376108e3fa3a112b087e57165a591";
-const [wicon, SetWicon] = useState(cloud_icon);
+  let api_key = process.env.REACT_APP_API_KEY;
+  const [wicon, SetWicon] = useState(cloud_icon);
 
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
@@ -27,45 +27,46 @@ const [wicon, SetWicon] = useState(cloud_icon);
     const temp = document.getElementsByClassName("weather-temp");
     const location = document.getElementsByClassName("weather-location");
 
-    humidity[0].innerHTML = data.main.humidity+ '%';
-    wind[0].innerHTML = data.wind.speed+ 'km/h';
-    temp[0].innerHTML = Math.floor(data.main.temp)+ '°c';
+    humidity[0].innerHTML = data.main.humidity + "%";
+    wind[0].innerHTML = data.wind.speed + "km/h";
+    temp[0].innerHTML = Math.floor(data.main.temp) + "°c";
     location[0].innerHTML = data.name;
 
-if(data.weather[0].icon === '01d' || data.weather[0].icon === '01n')
-{
-  SetWicon(clear_icon)
-}
-
-else if(data.weather[0].icon === '02d' || data.weather[0].icon === '02n')
-{
-  SetWicon(cloud_icon)
-}
-else if(data.weather[0].icon === '03d' || data.weather[0].icon === '03n')
-{
-  SetWicon(drizzle_icon)
-}
-else if(data.weather[0].icon === '04d' || data.weather[0].icon === '04n')
-{
-  SetWicon(drizzle_icon)
-}
-
-else if(data.weather[0].icon === '09d' || data.weather[0].icon === '09n')
-{
-  SetWicon(rain_icon)
-}
-else if(data.weather[0].icon === '10d' || data.weather[0].icon === '10n')
-{
-  SetWicon(rain_icon)
-}
-else if(data.weather[0].icon === '13d' || data.weather[0].icon === '13n')
-{
-  SetWicon(snow_icon)
-}
-else {
-  SetWicon(clear_icon)
-}
-
+    if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
+      SetWicon(clear_icon);
+    } else if (
+      data.weather[0].icon === "02d" ||
+      data.weather[0].icon === "02n"
+    ) {
+      SetWicon(cloud_icon);
+    } else if (
+      data.weather[0].icon === "03d" ||
+      data.weather[0].icon === "03n"
+    ) {
+      SetWicon(drizzle_icon);
+    } else if (
+      data.weather[0].icon === "04d" ||
+      data.weather[0].icon === "04n"
+    ) {
+      SetWicon(drizzle_icon);
+    } else if (
+      data.weather[0].icon === "09d" ||
+      data.weather[0].icon === "09n"
+    ) {
+      SetWicon(rain_icon);
+    } else if (
+      data.weather[0].icon === "10d" ||
+      data.weather[0].icon === "10n"
+    ) {
+      SetWicon(rain_icon);
+    } else if (
+      data.weather[0].icon === "13d" ||
+      data.weather[0].icon === "13n"
+    ) {
+      SetWicon(snow_icon);
+    } else {
+      SetWicon(clear_icon);
+    }
   };
   return (
     <div className="container">
