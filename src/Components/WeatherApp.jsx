@@ -12,7 +12,7 @@ import humidity_icon from "./Assets/humidity.png";
 const WeatherApp = () => {
   let api_key = process.env.REACT_APP_API_KEY;
   const [wicon, SetWicon] = useState(cloud_icon);
-
+  console.log("apikey", api_key);
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
     if (element[0].value === "") {
@@ -21,7 +21,7 @@ const WeatherApp = () => {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${api_key}`;
     let response = await fetch(url);
     let data = await response.json();
-    console.log(response, "hej");
+    console.log(response);
     const humidity = document.getElementsByClassName("humidity-percent");
     const wind = document.getElementsByClassName("wind-speed");
     const temp = document.getElementsByClassName("weather-temp");
