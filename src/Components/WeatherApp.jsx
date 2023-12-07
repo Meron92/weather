@@ -12,7 +12,7 @@ import humidity_icon from "./Assets/humidity.png";
 const WeatherApp = () => {
   let api_key = process.env.REACT_APP_API_KEY;
   const [wicon, SetWicon] = useState(cloud_icon);
-  console.log("apikey", api_key);
+
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
     if (element[0].value === "") {
